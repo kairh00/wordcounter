@@ -174,7 +174,7 @@ console.log(display);
 function loaddata(){
   if (localStorage.getItem('display')!==null){
    let _display = JSON.parse(localStorage.getItem("display"));
-   document.getElementById('project').value = _display;
+   document.getElementById('project') = _display;
     console.log("data found");
   } else{ console.log("head empty");}
                                  }
