@@ -168,17 +168,22 @@ project.addEventListener('input', wordcount);
 
 function savetext(){
    const display = {};
+  const set ={};
   display.savedata = project.value;
+  set.savedata = wordtarget.value;
 console.log(display);
     window.localStorage.setItem('display', JSON.stringify(display));
+  window.localStorage.setItem('set', JSON.stringify(set));
 }
 
 function loaddata(){
   if (localStorage.getItem('display')!==null){
   let todisplay = JSON.parse(localStorage.getItem("display"));
+  let toset= JSON.parse(localStorage.getItem("set"));
   project.value = todisplay.savedata;
+  wordtarget.value=toset.savedata;
     console.log("data found" );
-    console.log(todisplay);
+    console.log(todisplay, toset);
   } else{ console.log("head empty");}
                                  }
 </script>
