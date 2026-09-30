@@ -174,7 +174,7 @@ console.log(display);
 function loaddata(){
   if (localStorage.getItem('display')!==null){
   let todisplay = JSON.parse(localStorage.getItem("display"));
-  project.value = todisplay;
+  project.value = JSON.stringify(todisplay);
     console.log("data found" );
     console.log(todisplay);
   } else{ console.log("head empty");}
