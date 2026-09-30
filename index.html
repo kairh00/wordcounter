@@ -146,8 +146,8 @@ let progpercentage=document.getElementById('progpercentage');
 let wordtarget=document.getElementById('wordtarget');
 const progressElement = document.getElementById("prog");
 
-project.addEventListener('input', function (){
-  let content = this.value;
+  function wordcount(){
+    let content = this.value;
   char.textContent = content.length;
   
   content.trim();
@@ -162,7 +162,9 @@ project.addEventListener('input', function (){
   let percentage = (words.length / wordtarget.value) * 100;
   progressElement.value = percentage;
   progpercentage.textContent = percentage.toFixed(0);
-})
+  }
+  
+project.addEventListener('input', wordcount);
 
 function savetext(){
    const display = {};
@@ -174,6 +176,7 @@ console.log(display);
 function loaddata(){
   if (localStorage.getItem('display')!==null){
   let todisplay = JSON.parse(localStorage.getItem("display"));
+    updateCounters();
   project.value = todisplay.savedata;
     console.log("data found" );
     console.log(todisplay);
