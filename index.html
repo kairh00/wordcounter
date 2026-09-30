@@ -103,7 +103,7 @@ textarea:focus, input:focus{outline:none; }
        <label for="wordtarget">Target Wordcount </label>
        <input id="wordtarget" type="number" value="1000"  min="1" max="100000" step="50" placeholder="100">
      </div>
-      <button type="button" onclick="save()">
+      <button type="button" onclick="savetext()">
         <p>
           Save draft
         </p>
@@ -164,7 +164,7 @@ project.addEventListener('input', function (){
   progpercentage.textContent = percentage.toFixed(0);
 })
 
-function save(){
+function savetext(){
    const display = {};
   display.savedata = document.getElementById('project').value;
 console.log(display);
@@ -176,7 +176,7 @@ function loaddata(){
    let _display = JSON.parse(localStorage.getItem("display"));
    document.getElementById('project').value = _display;
     console.log("data found");
-  } else{ console.l"og("head empty");}
+  } else{ console.log("head empty");}
                                  }
 </script>
 
