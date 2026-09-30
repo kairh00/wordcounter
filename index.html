@@ -166,16 +166,17 @@ project.addEventListener('input', function (){
 
 function savetext(){
    const display = {};
-  display.savedata = document.getElementById('project').value;
+  display.savedata = project.value;
 console.log(display);
     window.localStorage.setItem('display', JSON.stringify(display));
 }
 
 function loaddata(){
   if (localStorage.getItem('display')!==null){
-   let _display = JSON.parse(localStorage.getItem("display"));
-   document.getElementById('project').value = _display.value;
-    console.log("data found");
+   let todisplay = JSON.parse(localStorage.getItem("display"));
+  projdct.value = todisplay.value;
+    console.log("data found" );
+    console.log(todisplay);
   } else{ console.log("head empty");}
                                  }
 </script>
