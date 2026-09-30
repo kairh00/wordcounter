@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+
+<style id="webmakerstyle">
+
+body{padding:0px; margin:0; height:100vh; }
+h1, p {color:black;}
+
+#main{display:flex; flex-direction:row;height:inherit;}
+
+
+#menu {
+  display:flex;
+  flex-direction:column;
+  max-width:250px;
+  padding:40px 25px;
+  margin:0 0 20px;
+  //**justify-content:space-between;**//
+  align-items:center;
+  border-right:1px dashed black;
+  gap:25px;
+}
+
+#container {
+  display:flex;
+  flex-direction:column; 
+  padding: 40px; 
+  flex:1;
+ 
+  }
+
+#txt {flex-direction:row; flex:1;}
+ #settings {display:flex;flex-direction:column; gap:10px}
+
+
+#counters {
+  display:flex; 
+  flex-direction:row;
+  justify-content: space-between;
+}
+
+progress {
+  width: 100%;
+  height:30px;
+  padding: 3px;
+  border:1px solid red;
+  background: white;
+  border-radius: 5px;
+  
+}
+progress::-webkit-progress-bar {
+  background: white;
+  border-radius: 3px;
+}  
+
+progress::-webkit-progress-value {  
+  border-radius: 3px;
+  background: red;
+  transition: width 0.4s ease-in-out; 
+} 
+
+input {
+  font-size:14px;
+  padding:5px;
+  border:1px solid grey;
+  color:grey;
+}
+textarea{
+  font-size:16px; 
+  flex:1; 
+padding:10px;
+  margin-top:10px;
+border:1px solid black;
+resize:none;}
+
+textarea, input {
+  color:black;
+  background-color:white;
+  border-radius:3px;
+}
+
+textarea:focus, input:focus{outline:none; }
+
+::placeholder {
+  color: skyblue;
+}
+</style>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HIT UR WORDCOUNTS!</title>
+</head>
+
+<body onload="loaddata()">
+  <div id="main">
+    
+  <div id="menu" class="col">
+    <h1>
+      hit your wordcount targets please
+    </h1>
+    <div id="settings">
+       <label for="wordtarget">Target Wordcount </label>
+       <input id="wordtarget" type="number" value="1000"  min="1" max="100000" step="50" placeholder="100">
+     </div>
+      <button type="button" onclick="save()">
+        <p>
+          Save draft
+        </p>
+    </button>
+  </div>
+  <!-- 
+<div class="settings">
+  <label for="maxwords">Max. Words </label>
+  <input id="maxwords" type="number" value="100"  min="1" max="100000" step="50">
+  </div>
+  -->
+  <div id="container" class="col">
+
+      <progress id="prog" value="0" max="100"> </progress>
+      <div id="counters">
+       
+      <p class="result">
+            <span id="word">0</span> Words and
+            <span id="char">0</span> Characters
+        </p>
+        
+          <p class="result">
+             <span id="progpercentage">0</span>%
+        </p>
+  </div>
+     
+      <textarea id="project" placeholder="Start Writing"></textarea>
+   
+  </div>
+  
+  </div>
+  
+</body>
+
+<script>let project = document.getElementById('project');
+let word = document.getElementById('word');
+let char= document.getElementById('char');
+let progpercentage=document.getElementById('progpercentage');
+let wordtarget=document.getElementById('wordtarget');
+const progressElement = document.getElementById("prog");
+
+project.addEventListener('input', function (){
+  let content = this.value;
+  char.textContent = content.length;
+  
+  content.trim();
+  console.log(content);
+  let wordList = content.split(/\s/);
+  let words= wordList.filter(function (element) {
+    return element !="";
+  });
+  
+  word.textContent = words.length;
+
+  let percentage = (words.length / wordtarget.value) * 100;
+  progressElement.value = percentage;
+  progpercentage.textContent = percentage.toFixed(0);
+})
+
+function save(){
+   const display = {};
+  display.savedata = document.getElementById('project').value;
+console.log(display);
+    window.localStorage.setItem('display', JSON.stringify(display));
+}
+
+function loaddata(){
+  
+   let _display = JSON.parse(localStorage.getItem("display"));
+   document.getElementById('project').value = _display;
+
+                                 }
+
+//https://stackoverflow.com/questions/69962673/how-do-i-save-and-show-text-input-to-local-storage-using-a-button
+
+
+
+//# sourceURL=userscript.js
+</script>
+</body>
+</html>
