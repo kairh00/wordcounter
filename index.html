@@ -176,7 +176,6 @@ console.log(display);
 function loaddata(){
   if (localStorage.getItem('display')!==null){
   let todisplay = JSON.parse(localStorage.getItem("display"));
-    wordcount();
   project.value = todisplay.savedata;
     console.log("data found" );
     console.log(todisplay);
