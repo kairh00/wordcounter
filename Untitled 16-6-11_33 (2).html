@@ -177,14 +177,14 @@ console.log(display);
 }
 
 function loaddata(){
-  
+  if (localStorage.getItem('display')!==null{
    let _display = JSON.parse(localStorage.getItem("display"));
    document.getElementById('project').value = _display;
-
+    console.log("data found");
+  } else{ console.l"og("head empty");}
                                  }
 
-//https://stackoverflow.com/questions/69962673/how-do-i-save-and-show-text-input-to-local-storage-using-a-button
-
+//https://stackoverflow.com/questions/69962673/how-do-i-save-and-show-text-input-to-local-storage-using-a-button  https://community.latenode.com/t/best-way-to-verify-if-a-javascript-variable-is-declared-and-has-a-value/25142
 
 
 //# sourceURL=userscript.js
