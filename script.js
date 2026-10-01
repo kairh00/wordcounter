@@ -4,9 +4,6 @@ let char= document.getElementById('char');
 let progpercentage=document.getElementById('progpercentage');
 let wordtarget=document.getElementById('wordtarget');
 const progressElement = document.getElementById("prog");
-const d= new Date();
-const currentDate = new Date(d);
-const formattedDate = currentDate.toLocaleString();
   
   function wordcount(){
   let content = project.value;
