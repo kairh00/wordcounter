@@ -145,9 +145,10 @@ let char= document.getElementById('char');
 let progpercentage=document.getElementById('progpercentage');
 let wordtarget=document.getElementById('wordtarget');
 const progressElement = document.getElementById("prog");
-let content = this.value;
+
   
   function wordcount(){
+  let content = this.value;
   char.textContent = content.length;
   content.trim();
   console.log(content);
