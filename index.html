@@ -145,11 +145,10 @@ let char= document.getElementById('char');
 let progpercentage=document.getElementById('progpercentage');
 let wordtarget=document.getElementById('wordtarget');
 const progressElement = document.getElementById("prog");
-
-  function wordcount(){
-    let content = this.value;
-  char.textContent = content.length;
+let content = this.value;
   
+  function wordcount(){
+  char.textContent = content.length;
   content.trim();
   console.log(content);
   let wordList = content.split(/\s/);
@@ -158,7 +157,6 @@ const progressElement = document.getElementById("prog");
   });
   
   word.textContent = words.length;
-
   let percentage = (words.length / wordtarget.value) * 100;
   progressElement.value = percentage;
   progpercentage.textContent = percentage.toFixed(0);
@@ -182,8 +180,9 @@ function loaddata(){
   let toset= JSON.parse(localStorage.getItem("set"));
   project.value = todisplay.savedata;
   wordtarget.value=toset.savedata;
-    console.log("data found" );
-    console.log(todisplay, toset);
+  wordcount();
+  console.log("data found" );
+  console.log(todisplay, toset);
   } else{ console.log("head empty");}
                                  }
 </script>
