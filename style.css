@@ -57,6 +57,13 @@ progress::-webkit-progress-value {
   background: red;
   transition: width 0.4s ease-in-out; 
 } 
+progress::-moz-progress-bar {  background: white;
+  border-radius: 3px;)
+progress::-moz-progress-value {  
+  border-radius: 3px;
+  background: red;
+  transition: width 0.4s ease-in-out; 
+}                    
 
 input {
   font-size:14px;
